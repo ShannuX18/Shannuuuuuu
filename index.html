@@ -1,100 +1,141 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Form with Popup</title>
+<title>Virat Kohli Form</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: url('https://wallpapercave.com/wp/wp5128415.jpg') no-repeat center center/cover;
-        }
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('https://wallpapercave.com/wp/wp5128415.jpg') no-repeat center center/cover;
+}
 
-        .container {
-            background: rgba(0, 0, 0, 0.75);
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            color: white;
-            width: 320px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.6);
-            animation: fadeIn 1s ease;
-        }
+/* ENTRY ANIMATION OVERLAY */
+.entry {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    animation: entryFade 2.5s forwards;
+}
 
-        input, textarea {
-            width: 90%;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 8px;
-            border: none;
-            outline: none;
-        }
+.entry h1 {
+    color: #00e676;
+    font-size: 40px;
+    letter-spacing: 3px;
+    animation: zoomGlow 2s ease;
+}
 
-        button {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 20px;
-            background: #00c853;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-        }
+/* FORM CONTAINER */
+.container {
+    background: rgba(0, 0, 0, 0.75);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    color: white;
+    width: 320px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.6);
+    animation: fadeIn 1s ease;
+}
 
-        .popup {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.6);
-            display: none;
-            justify-content: center;
-            align-items: center;
-        }
+input, textarea {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
 
-        .popup-content {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            animation: pop 0.5s ease;
-        }
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background: #00c853;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
 
-        .popup-content h3 {
-            color: green;
-        }
+/* POPUP */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
 
-        .close-btn {
-            margin-top: 15px;
-            padding: 8px 15px;
-            border: none;
-            background: #00c853;
-            color: white;
-            border-radius: 10px;
-            cursor: pointer;
-        }
+.popup-content {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    animation: pop 0.5s ease;
+}
 
-        @keyframes pop {
-            0% { transform: scale(0); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
-        }
+.popup-content h3 {
+    color: green;
+}
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+.close-btn {
+    margin-top: 15px;
+    padding: 8px 15px;
+    border: none;
+    background: #00c853;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* ANIMATIONS */
+@keyframes zoomGlow {
+    0% { transform: scale(0.5); opacity: 0; text-shadow: none; }
+    50% { transform: scale(1.2); opacity: 1; text-shadow: 0 0 20px #00e676; }
+    100% { transform: scale(1); text-shadow: 0 0 10px #00e676; }
+}
+
+@keyframes entryFade {
+    0% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; visibility: hidden; }
+}
+
+@keyframes pop {
+    0% { transform: scale(0); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+</style>
 </head>
 
 <body>
 
+<!-- VIRAT ENTRY SCREEN -->
+<div class="entry">
+    <h1>VK MODE 🔥</h1>
+</div>
+
+<!-- FORM -->
 <form id="myForm" class="container" action="https://api.web3forms.com/submit" method="POST">
 
-    <!-- Web3Forms Key -->
     <input type="hidden" name="access_key" value="91ee789a-5ecd-4bb5-897e-9704497339a4">
 
     <h2>Send Message</h2>
@@ -106,7 +147,7 @@
 
 </form>
 
-<!-- Popup -->
+<!-- POPUP -->
 <div class="popup" id="popup">
     <div class="popup-content">
         <h3>✅ Submitted Successfully!</h3>
@@ -115,29 +156,29 @@
 </div>
 
 <script>
-    const form = document.getElementById("myForm");
+const form = document.getElementById("myForm");
 
-    form.addEventListener("submit", function(e) {
-        e.preventDefault();
+form.addEventListener("submit", function(e) {
+    e.preventDefault();
 
-        fetch(form.action, {
-            method: "POST",
-            body: new FormData(form)
-        })
-        .then(response => {
-            if (response.ok) {
-                document.getElementById("popup").style.display = "flex";
-                form.reset();
-            } else {
-                alert("Submission failed!");
-            }
-        })
-        .catch(() => alert("Error submitting form"));
-    });
+    fetch(form.action, {
+        method: "POST",
+        body: new FormData(form)
+    })
+    .then(response => {
+        if (response.ok) {
+            document.getElementById("popup").style.display = "flex";
+            form.reset();
+        } else {
+            alert("Submission failed!");
+        }
+    })
+    .catch(() => alert("Error submitting form"));
+});
 
-    function closePopup() {
-        document.getElementById("popup").style.display = "none";
-    }
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
+}
 </script>
 
 </body>
